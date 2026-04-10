@@ -1,0 +1,83 @@
+---
+/* Galería de trabajos con grid asimétrico y glow en hover */
+/* REEMPLAZA estas URLs con "/img/galeria-N.jpg" cuando tengas tus fotos reales */
+const fotosGaleria = [
+  "https://picsum.photos/seed/40/800/1000",
+  "https://picsum.photos/seed/60/800/600",
+  "https://picsum.photos/seed/80/800/600",
+  "https://picsum.photos/seed/110/1200/600",
+  "https://picsum.photos/seed/140/800/600",
+  "https://picsum.photos/seed/170/800/600",
+];
+---
+
+<section id="galeria" class="relative py-24 px-4 overflow-hidden">
+
+  <!-- Gradiente de sección -->
+  <div class="absolute inset-0 bg-grisOscuro"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+
+    <!-- Título -->
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl sm:text-4xl text-blanco mb-4 drop-shadow-[0_0_20px_rgba(255,31,31,0.4)]">
+        NUESTRO TRABAJO
+      </h2>
+      <div class="w-12 h-px bg-rojo mx-auto shadow-neonRojoSutil"></div>
+    </div>
+
+    <!-- Grid asimétrico -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
+
+      <!-- Foto 1: grande (2 filas) -->
+      <div class="foto-galeria row-span-2 relative overflow-hidden rounded-xl cursor-pointer group">
+        <img
+          src={fotosGaleria[0]}
+          alt="Trabajo de tatuaje 1"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
+        <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
+      </div>
+
+      <!-- Fotos 2 y 3: normales -->
+      {fotosGaleria.slice(1, 3).map((foto, idx) => (
+        <div class="foto-galeria relative overflow-hidden rounded-xl cursor-pointer group">
+          <img
+            src={foto}
+            alt={`Trabajo ${idx + 2}`}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
+          <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
+        </div>
+      ))}
+
+      <!-- Foto 4: ancha (2 columnas) -->
+      <div class="foto-galeria col-span-2 relative overflow-hidden rounded-xl cursor-pointer group">
+        <img
+          src={fotosGaleria[3]}
+          alt="Trabajo 4 - carta de presentación"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
+        <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
+      </div>
+
+      <!-- Fotos 5 y 6: normales -->
+      {fotosGaleria.slice(4, 6).map((foto, idx) => (
+        <div class="foto-galeria relative overflow-hidden rounded-xl cursor-pointer group">
+          <img
+            src={foto}
+            alt={`Trabajo ${idx + 5}`}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
+          <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>

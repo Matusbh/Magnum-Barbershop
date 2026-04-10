@@ -1,0 +1,72 @@
+---
+/* Sección del equipo con cards liquid glass */
+/* REEMPLAZA estas URLs con "/img/equipo-N.jpg" cuando tengas tus fotos reales */
+const miembrosEquipo = [
+  {
+    nombre: 'Marco "The Blade"',
+    rol: 'Master Barber',
+    rutaFoto: 'https://picsum.photos/seed/91/600/800',
+    descripcion: '10 años de experiencia en cortes clásicos y fades.',
+  },
+  {
+    nombre: 'Elena Ink',
+    rol: 'Tatuadora Principal',
+    rutaFoto: 'https://picsum.photos/seed/64/600/800',
+    descripcion: 'Especialista en realismo y fine line con 7 años de trayectoria.',
+  },
+  {
+    nombre: 'Víctor Cruz',
+    rol: 'Barber & Tattoo Artist',
+    rutaFoto: 'https://picsum.photos/seed/103/600/800',
+    descripcion: 'Artista versátil, experto en degradados y blackwork.',
+  },
+];
+---
+
+<section id="equipo" class="relative py-24 px-4 overflow-hidden">
+
+  <div class="absolute inset-0 bg-gradient-to-b from-grisOscuro to-fondo"></div>
+
+  <!-- Glow derecho -->
+  <div class="absolute -right-20 top-1/2 w-60 h-60 rounded-full bg-rojo/10 blur-[80px] pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
+
+    <!-- Título -->
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl sm:text-4xl text-blanco mb-4 drop-shadow-[0_0_20px_rgba(255,31,31,0.4)]">
+        LOS ARTISTAS
+      </h2>
+      <div class="w-12 h-px bg-rojo mx-auto shadow-neonRojoSutil"></div>
+    </div>
+
+    <!-- Cards del equipo -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {miembrosEquipo.map((miembro) => (
+        <div class="liquid-glass rounded-xl overflow-hidden group hover:border-rojo/30 transition-all duration-400">
+
+          <!-- Foto del miembro -->
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src={miembro.rutaFoto}
+              alt={`Foto de ${miembro.nombre}`}
+              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+            <!-- Glow neon rojo al hover -->
+            <div class="absolute inset-0 bg-rojo/0 group-hover:bg-rojo/10 transition-all duration-400"></div>
+            <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-rojo/60 group-hover:shadow-neonRojoSutil transition-all duration-400"></div>
+          </div>
+
+          <!-- Info del miembro -->
+          <div class="p-5">
+            <h3 class="text-blanco font-semibold text-base mb-1">{miembro.nombre}</h3>
+            <p class="text-rojo text-xs tracking-widest uppercase mb-3">{miembro.rol}</p>
+            <p class="text-blanco/50 text-sm leading-relaxed">{miembro.descripcion}</p>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

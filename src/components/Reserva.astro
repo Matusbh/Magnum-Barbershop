@@ -1,0 +1,43 @@
+---
+/* Banner de reserva full-width con CTA grande */
+const urlReserva     = "https://booksy.com";
+const textoBoton     = "RESERVAR EN BOOKSY";
+---
+
+<section id="reserva" class="relative py-28 px-4 overflow-hidden">
+
+  <!-- Fondo con glow rojo difuso central -->
+  <div class="absolute inset-0 bg-gradient-to-r from-fondo via-grisOscuro to-fondo"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-rojo/15 blur-[120px] pointer-events-none"></div>
+
+  <!-- Líneas decorativas -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rojo/40 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rojo/40 to-transparent"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
+
+    <!-- Etiqueta superior -->
+    <span class="text-rojo text-xs tracking-[0.4em] uppercase font-medium">Online Booking</span>
+
+    <!-- Título principal -->
+    <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-blanco leading-tight drop-shadow-[0_0_30px_rgba(255,31,31,0.5)]">
+      ¿LISTO PARA<br />EL CAMBIO?
+    </h2>
+
+    <!-- Subtexto -->
+    <p class="text-blanco/60 text-base sm:text-lg max-w-md leading-relaxed">
+      Reserva tu cita online en segundos. Sin esperas, sin llamadas.
+    </p>
+
+    <!-- Botón CTA grande -->
+    <a
+      href={urlReserva}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-2 px-12 py-5 liquid-glass border border-rojo/60 text-rojo font-cuerpo text-sm sm:text-base tracking-[0.2em] uppercase rounded-lg hover:bg-rojo hover:text-fondo hover:shadow-neonRojo transition-all duration-400 font-semibold"
+    >
+      {textoBoton}
+    </a>
+
+  </div>
+</section>

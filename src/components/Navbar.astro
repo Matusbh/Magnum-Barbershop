@@ -1,0 +1,98 @@
+---
+/* Navbar fija con efecto liquid glass y menú hamburguesa en móvil */
+import { Menu, X } from '@lucide/astro';
+
+const enlacesNav = [
+  { texto: 'Servicios', ancla: '#servicios' },
+  { texto: 'Galería',   ancla: '#galeria'   },
+  { texto: 'Equipo',    ancla: '#equipo'    },
+  { texto: 'Visítanos', ancla: '#ubicacion' },
+  { texto: 'Contacto',  ancla: '#contacto'  },
+];
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 liquid-glass border-b border-white/5 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+
+    <!-- Logo / nombre -->
+    <a href="#hero" class="font-display text-xl text-blanco tracking-wider hover:text-rojo transition-colors duration-300">
+      MAGNUM
+    </a>
+
+    <!-- Links de escritorio -->
+    <nav class="hidden md:flex items-center gap-8">
+      {enlacesNav.map((enlace) => (
+        <a
+          href={enlace.ancla}
+          class="text-sm text-blanco/70 hover:text-rojo tracking-widest uppercase transition-colors duration-300"
+        >
+          {enlace.texto}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Botón reserva escritorio -->
+    <a
+      href="https://booksy.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden md:inline-flex items-center gap-2 px-5 py-2 liquid-glass border border-rojo/40 text-rojo text-sm tracking-widest uppercase rounded hover:bg-rojo hover:text-fondo transition-all duration-300 hover:shadow-neonRojoSutil"
+    >
+      Reservar
+    </a>
+
+    <!-- Botón hamburguesa móvil -->
+    <button
+      id="btnMenuMovil"
+      aria-label="Abrir menú"
+      class="md:hidden text-blanco hover:text-rojo transition-colors"
+    >
+      <Menu id="iconoMenu" size={24} />
+      <X id="iconoCerrar" size={24} class="hidden" />
+    </button>
+  </div>
+
+  <!-- Menú desplegable móvil -->
+  <div id="menuMovil" class="hidden md:hidden px-4 pb-4 flex flex-col gap-4">
+    {enlacesNav.map((enlace) => (
+      <a
+        href={enlace.ancla}
+        class="menu-movil-enlace text-blanco/80 hover:text-rojo uppercase tracking-widest text-sm transition-colors"
+      >
+        {enlace.texto}
+      </a>
+    ))}
+    <a
+      href="https://booksy.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="menu-movil-enlace mt-2 text-center px-5 py-2 border border-rojo/50 text-rojo text-sm tracking-widest uppercase rounded hover:bg-rojo hover:text-fondo transition-all duration-300"
+    >
+      Reservar
+    </a>
+  </div>
+</header>
+
+<script>
+  /* Lógica menú hamburguesa */
+  const btnMenuMovil  = document.getElementById('btnMenuMovil');
+  const menuMovil     = document.getElementById('menuMovil');
+  const iconoMenu     = document.getElementById('iconoMenu');
+  const iconoCerrar   = document.getElementById('iconoCerrar');
+
+  btnMenuMovil?.addEventListener('click', () => {
+    const estaAbierto = !menuMovil.classList.contains('hidden');
+    menuMovil.classList.toggle('hidden');
+    iconoMenu.classList.toggle('hidden', !estaAbierto);
+    iconoCerrar.classList.toggle('hidden', estaAbierto);
+  });
+
+  /* Cerrar menú al hacer clic en un enlace */
+  document.querySelectorAll('.menu-movil-enlace').forEach((enlace) => {
+    enlace.addEventListener('click', () => {
+      menuMovil.classList.add('hidden');
+      iconoMenu.classList.remove('hidden');
+      iconoCerrar.classList.add('hidden');
+    });
+  });
+</script>

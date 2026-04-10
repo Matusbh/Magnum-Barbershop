@@ -1,0 +1,57 @@
+---
+/* Hero a pantalla completa con foto de fondo, nombre blackletter y CTA */
+/* REEMPLAZA esta URL con "/img/hero.jpg" cuando tengas tu foto real */
+const rutaHero      = "https://picsum.photos/seed/barber/1920/1080";
+const textoBoton    = "RESERVA TU CITA";
+const urlReserva    = "https://booksy.com";
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Imagen de fondo -->
+  <img
+    src={rutaHero}
+    alt="Interior de Magnum Barbershop & Tattoo"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="eager"
+  />
+
+  <!-- Overlay oscuro degradado -->
+  <div class="absolute inset-0 bg-gradient-to-b from-fondo/70 via-fondo/50 to-fondo/90"></div>
+
+  <!-- Glow rojo neon detrás del nombre -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] rounded-full bg-rojo/20 blur-[100px] pointer-events-none"></div>
+
+  <!-- Contenido central -->
+  <div class="relative z-10 text-center px-4 flex flex-col items-center gap-6">
+
+    <!-- Nombre principal en blackletter -->
+    <h1 class="font-display text-6xl sm:text-8xl md:text-9xl text-blanco leading-none tracking-tight drop-shadow-[0_0_40px_rgba(255,31,31,0.7)]">
+      MAGNUM
+    </h1>
+
+    <!-- Subtítulo -->
+    <p class="text-blanco/70 text-base sm:text-lg tracking-[0.3em] uppercase">
+      Barbershop &amp; Tattoo · Los Realejos, Tenerife
+    </p>
+
+    <!-- Separador rojo -->
+    <div class="w-16 h-px bg-rojo shadow-neonRojoSutil"></div>
+
+    <!-- Botón CTA liquid glass -->
+    <a
+      href={urlReserva}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-4 px-10 py-4 liquid-glass border border-rojo/60 text-rojo font-cuerpo text-sm tracking-[0.25em] uppercase rounded hover:bg-rojo hover:text-fondo hover:shadow-neonRojo transition-all duration-400 font-medium"
+    >
+      {textoBoton}
+    </a>
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
+    <div class="w-px h-10 bg-blanco/40"></div>
+    <span class="text-xs text-blanco/40 tracking-widest uppercase">Scroll</span>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+/* Página de inicio: ensambla todos los componentes */
+import Layout   from '../layouts/Layout.astro';
+import Navbar   from '../components/Navbar.astro';
+import Hero     from '../components/Hero.astro';
+import Servicios from '../components/Servicios.astro';
+import Galeria  from '../components/Galeria.astro';
+import Equipo   from '../components/Equipo.astro';
+import Ubicacion from '../components/Ubicacion.astro';
+import Reserva  from '../components/Reserva.astro';
+import Contacto from '../components/Contacto.astro';
+---
+
+<Layout titulo="Magnum Barbershop & Tattoo · Los Realejos, Tenerife">
+  <Navbar />
+  <main>
+    <Hero />
+    <Servicios />
+    <Galeria />
+    <Equipo />
+    <Ubicacion />
+    <Reserva />
+  </main>
+  <Contacto />
+</Layout>

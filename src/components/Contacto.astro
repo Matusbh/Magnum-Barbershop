@@ -1,0 +1,112 @@
+---
+/* Footer de contacto: WhatsApp, Instagram, dirección, copyright */
+import { Phone, ExternalLink, MapPin } from "@lucide/astro";
+
+const numeroWhatsapp = "34600000000";
+const urlInstagram = "https://instagram.com/magnumbarbershop";
+const textoWhatsapp = "+34 600 000 000";
+const textoInstagram = "@magnumbarbershop";
+const direccionCorta = "C/ Principal 12, Los Realejos, Tenerife";
+---
+
+<footer id="contacto" class="relative pt-16 pb-10 px-4 overflow-hidden">
+  <!-- Línea superior -->
+  <div
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rojo/30 to-transparent"
+  >
+  </div>
+
+  <!-- Fondo oscuro total -->
+  <div class="absolute inset-0 bg-fondo"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <!-- Contenido principal del footer -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+      <!-- Columna: Marca -->
+      <div class="flex flex-col gap-3">
+        <h3 class="font-display text-2xl text-blanco mb-2">MAGNUM</h3>
+        <p class="text-blanco/40 text-sm leading-relaxed">
+          Barbershop &amp; Tattoo<br />Los Realejos, Tenerife
+        </p>
+        <div class="w-8 h-px bg-rojo mt-2"></div>
+      </div>
+
+      <!-- Columna: Contacto -->
+      <div class="flex flex-col gap-4">
+        <h4 class="text-blanco/50 text-xs tracking-widest uppercase mb-1">
+          Contacto
+        </h4>
+
+        <!-- WhatsApp -->
+        <a
+          href={`https://wa.me/${numeroWhatsapp}?text=Hola%2C%20quiero%20reservar%20una%20cita`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-3 group w-fit"
+        >
+          <div
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-[#25D366]/10 group-hover:bg-[#25D366]/20 transition-colors"
+          >
+            <Phone size={16} class="text-[#25D366]" />
+          </div>
+          <span
+            class="text-blanco/70 text-sm group-hover:text-[#25D366] transition-colors"
+            >{textoWhatsapp}</span
+          >
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href={urlInstagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-3 group w-fit"
+        >
+          <div
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-blanco/5 group-hover:bg-blanco/10 transition-colors"
+          >
+            <ExternalLink
+              size={16}
+              class="text-blanco/70 group-hover:text-blanco transition-colors"
+            />
+          </div>
+          <span
+            class="text-blanco/70 text-sm group-hover:text-blanco transition-colors"
+            >{textoInstagram}</span
+          >
+        </a>
+
+        <!-- Dirección -->
+        <div class="flex items-center gap-3">
+          <div
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-blanco/5"
+          >
+            <MapPin size={16} class="text-blanco/40" />
+          </div>
+          <span class="text-blanco/40 text-sm">{direccionCorta}</span>
+        </div>
+      </div>
+
+      <!-- Columna: Horario rápido -->
+      <div class="flex flex-col gap-3">
+        <h4 class="text-blanco/50 text-xs tracking-widest uppercase mb-1">
+          Horario
+        </h4>
+        <p class="text-blanco/60 text-sm">Lun – Vie: 09:00 – 20:00</p>
+        <p class="text-blanco/60 text-sm">Sábados: 09:00 – 18:00</p>
+        <p class="text-rojo/60 text-sm">Domingos: Cerrado</p>
+      </div>
+    </div>
+
+    <!-- Separador -->
+    <div
+      class="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+    >
+      <p class="text-blanco/30 text-xs">
+        © {new Date().getFullYear()} Magnum Barbershop &amp; Tattoo. Todos los derechos
+        reservados.
+      </p>
+      <p class="text-blanco/20 text-xs">Los Realejos, Tenerife · España</p>
+    </div>
+  </div>
+</footer>

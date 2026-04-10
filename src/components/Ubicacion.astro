@@ -1,0 +1,90 @@
+---
+/* Sección ubicación: mapa + horario y dirección */
+import { MapPin, Clock } from '@lucide/astro';
+
+const horario = [
+  { dia: 'Lunes – Viernes', horas: '09:00 – 20:00' },
+  { dia: 'Sábados',         horas: '09:00 – 18:00' },
+  { dia: 'Domingos',        horas: 'Cerrado' },
+];
+
+const direccion = "Calle Principal, 12, Los Realejos, 38410 Tenerife";
+---
+
+<section id="ubicacion" class="relative py-24 px-4 overflow-hidden">
+
+  <div class="absolute inset-0 bg-fondo"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
+
+    <!-- Título -->
+    <div class="text-center mb-16">
+      <h2 class="font-display text-3xl sm:text-4xl text-blanco mb-4 drop-shadow-[0_0_20px_rgba(255,31,31,0.4)]">
+        VISÍTANOS
+      </h2>
+      <div class="w-12 h-px bg-rojo mx-auto shadow-neonRojoSutil"></div>
+    </div>
+
+    <!-- Grid dos columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+      <!-- Columna izquierda: Mapa de Google -->
+      <div class="rounded-xl overflow-hidden border border-white/10 aspect-video md:aspect-auto md:h-80">
+        <iframe
+          title="Ubicación de Magnum Barbershop & Tattoo en Los Realejos, Tenerife"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3494.6!2d-16.587!3d28.388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDIzJzE2LjgiTiAxNsKwMzUnMTMuMiJX!5e0!3m2!1ses!2ses!4v1699000000000!5m2!1ses!2ses&q=Magnum+Barbershop+Tattoo+Los+Realejos+Tenerife"
+          width="100%"
+          height="100%"
+          style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.85);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <!-- Columna derecha: Dirección y horario -->
+      <div class="flex flex-col gap-8">
+
+        <!-- Dirección -->
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 flex-shrink-0 rounded-lg bg-rojo/10 flex items-center justify-center mt-0.5">
+            <MapPin size={18} class="text-rojo" />
+          </div>
+          <div>
+            <h3 class="text-blanco font-semibold mb-1 text-sm tracking-widest uppercase">Dirección</h3>
+            <p class="text-blanco/60 text-sm leading-relaxed">{direccion}</p>
+            <a
+              href="https://maps.google.com/?q=Magnum+Barbershop+Tattoo+Los+Realejos+Tenerife"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-2 inline-block text-rojo text-xs tracking-widest uppercase hover:underline transition-all"
+            >
+              Ver en Google Maps →
+            </a>
+          </div>
+        </div>
+
+        <!-- Horario -->
+        <div class="flex gap-4 items-start">
+          <div class="w-10 h-10 flex-shrink-0 rounded-lg bg-rojo/10 flex items-center justify-center mt-0.5">
+            <Clock size={18} class="text-rojo" />
+          </div>
+          <div class="flex-1">
+            <h3 class="text-blanco font-semibold mb-3 text-sm tracking-widest uppercase">Horario</h3>
+            <div class="space-y-2">
+              {horario.map((item) => (
+                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                  <span class="text-blanco/60 text-sm">{item.dia}</span>
+                  <span class={`text-sm font-medium ${item.horas === 'Cerrado' ? 'text-rojo/70' : 'text-blanco'}`}>
+                    {item.horas}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
