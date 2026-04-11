@@ -3,22 +3,28 @@
 /* REEMPLAZA estas URLs con "/img/equipo-N.jpg" cuando tengas tus fotos reales */
 const miembrosEquipo = [
   {
-    nombre: 'Marco "The Blade"',
-    rol: 'Master Barber',
+    nombre: 'Filip Behun',
+    rol: 'Barbero',
     rutaFoto: 'https://picsum.photos/seed/91/600/800',
-    descripcion: '10 años de experiencia en cortes clásicos y fades.',
+    descripcion: 'Barbero principal, especializado en cortes modernos, fades y atención al detalle.',
   },
   {
-    nombre: 'Elena Ink',
-    rol: 'Tatuadora Principal',
+    nombre: 'Cristian Hernández',
+    rol: 'Barbero',
     rutaFoto: 'https://picsum.photos/seed/64/600/800',
-    descripcion: 'Especialista en realismo y fine line con 7 años de trayectoria.',
+    descripcion: 'Barbero especializado en fades limpios, perfiles definidos y estilos actuales.',
   },
   {
-    nombre: 'Víctor Cruz',
-    rol: 'Barber & Tattoo Artist',
+    nombre: 'Alejandro',
+    rol: 'Barbero',
     rutaFoto: 'https://picsum.photos/seed/103/600/800',
-    descripcion: 'Artista versátil, experto en degradados y blackwork.',
+    descripcion: 'Barbero versátil, enfocado en degradados precisos y cortes con personalidad.',
+  },
+  {
+    nombre: 'Cristan alias Chevere',
+    rol: 'Tatuador',
+    rutaFoto: 'https://picsum.photos/seed/103/600/800',
+    descripcion: 'Tatuador especializado en blackwork, fine line y diseños en negro y gris.',
   },
 ];
 ---
@@ -41,7 +47,7 @@ const miembrosEquipo = [
     </div>
 
     <!-- Cards del equipo -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {miembrosEquipo.map((miembro) => (
         <div class="liquid-glass rounded-xl overflow-hidden group hover:border-rojo/30 transition-all duration-400">
 
