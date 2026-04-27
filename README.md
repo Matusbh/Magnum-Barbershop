@@ -6,7 +6,7 @@
 
 ## Demo
 
-[Ver demo en vivo](https://magnum-barbershop.netlify.app)
+[Ver demo en vivo](https://www.magnum-barbershop.es/)
 
 ---
 
@@ -32,12 +32,12 @@
 
 ## Tecnologías
 
-| Tecnología | Versión |
-| :--------- | :------ |
-| [Astro](https://astro.build) | ^6.1.5 |
-| [Tailwind CSS](https://tailwindcss.com) | ^3.4.19 |
-| [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/) | ^5.1.5 |
-| [@lucide/astro](https://lucide.dev) | ^1.8.0 |
+| Tecnología                                                                           | Versión |
+| :----------------------------------------------------------------------------------- | :------ |
+| [Astro](https://astro.build)                                                         | ^6.1.5  |
+| [Tailwind CSS](https://tailwindcss.com)                                              | ^3.4.19 |
+| [@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/) | ^5.1.5  |
+| [@lucide/astro](https://lucide.dev)                                                  | ^1.8.0  |
 
 ---
 
@@ -79,17 +79,17 @@ Magnum-Barbershop/
 
 ## Componentes
 
-| Componente | Descripción |
-| :--------- | :---------- |
-| `Navbar.astro` | Barra de navegación con enlaces a todas las secciones |
-| `Hero.astro` | Sección de portada con imagen de fondo, título y botón de reserva |
-| `Servicios.astro` | Lista de servicios ofrecidos: cortes, arreglo de barba, tatuajes, etc. |
-| `Galeria.astro` | Galería visual de trabajos realizados (cortes y tatuajes) |
-| `Equipo.astro` | Presentación del equipo con foto y descripción de cada miembro |
-| `Reserva.astro` | Formulario o enlace para realizar una reserva online |
-| `Ubicacion.astro` | Mapa e información de la localización del local en Puerto de la Cruz |
-| `Contacto.astro` | Datos de contacto: teléfono, email y redes sociales |
-| `Layout.astro` | Layout base que envuelve todas las páginas con head, fuentes y estilos globales |
+| Componente        | Descripción                                                                     |
+| :---------------- | :------------------------------------------------------------------------------ |
+| `Navbar.astro`    | Barra de navegación con enlaces a todas las secciones                           |
+| `Hero.astro`      | Sección de portada con imagen de fondo, título y botón de reserva               |
+| `Servicios.astro` | Lista de servicios ofrecidos: cortes, arreglo de barba, tatuajes, etc.          |
+| `Galeria.astro`   | Galería visual de trabajos realizados (cortes y tatuajes)                       |
+| `Equipo.astro`    | Presentación del equipo con foto y descripción de cada miembro                  |
+| `Reserva.astro`   | Formulario o enlace para realizar una reserva online                            |
+| `Ubicacion.astro` | Mapa e información de la localización del local en Puerto de la Cruz            |
+| `Contacto.astro`  | Datos de contacto: teléfono, email y redes sociales                             |
+| `Layout.astro`    | Layout base que envuelve todas las páginas con head, fuentes y estilos globales |
 
 ---
 
@@ -102,10 +102,10 @@ Magnum-Barbershop/
 
 ### Comandos
 
-| Comando | Acción |
-| :------ | :----- |
-| `pnpm install` | Instala las dependencias |
-| `pnpm dev` | Inicia el servidor de desarrollo en `localhost:4321` |
-| `pnpm build` | Genera el sitio de producción en `./dist/` |
-| `pnpm preview` | Previsualiza el build localmente antes de desplegar |
-| `pnpm astro ...` | Ejecuta comandos de la CLI de Astro |
+| Comando          | Acción                                               |
+| :--------------- | :--------------------------------------------------- |
+| `pnpm install`   | Instala las dependencias                             |
+| `pnpm dev`       | Inicia el servidor de desarrollo en `localhost:4321` |
+| `pnpm build`     | Genera el sitio de producción en `./dist/`           |
+| `pnpm preview`   | Previsualiza el build localmente antes de desplegar  |
+| `pnpm astro ...` | Ejecuta comandos de la CLI de Astro                  |
