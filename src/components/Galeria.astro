@@ -1,83 +1,217 @@
 ---
-/* Galería de trabajos con grid asimétrico y glow en hover */
-/* REEMPLAZA estas URLs con "/img/galeria-N.jpg" cuando tengas tus fotos reales */
 const fotosGaleria = [
-  "https://picsum.photos/seed/40/800/1000",
-  "https://picsum.photos/seed/60/800/600",
-  "https://picsum.photos/seed/80/800/600",
-  "https://picsum.photos/seed/110/1200/600",
-  "https://picsum.photos/seed/140/800/600",
-  "https://picsum.photos/seed/170/800/600",
+  "/Mano-bien.png",
+  "/Corte-ale-2.png",
+  "/Corte-filip-2.png",
+  "/Corte-cris-2.png",
+  "/mano-2-bien.jpeg",
+  "/Corte-cris-1.png",
+  "/Corte-filip-1.png",
+  "/Corte-ale-1.png",
+  "/pecho.jpeg",
 ];
 ---
 
-<section id="galeria" class="relative py-24 px-4 overflow-hidden">
-
-  <!-- Gradiente de sección -->
-  <div class="absolute inset-0 bg-grisOscuro"></div>
-
-  <div class="relative z-10 max-w-6xl mx-auto">
-
+<section id="galeria" class="relative overflow-hidden bg-grisOscuro px-4 py-24">
+  <div class="relative z-10 mx-auto max-w-6xl">
     <!-- Título -->
-    <div class="text-center mb-16">
-      <h2 class="font-display text-3xl sm:text-4xl text-blanco mb-4 drop-shadow-[0_0_20px_rgba(255,31,31,0.4)]">
+    <div class="mb-14 text-center">
+      <h2
+        class="font-display mb-4 text-3xl text-blanco drop-shadow-[0_0_20px_rgba(255,31,31,0.4)] sm:text-4xl"
+      >
         NUESTRO TRABAJO
       </h2>
-      <div class="w-12 h-px bg-rojo mx-auto shadow-neonRojoSutil"></div>
+
+      <div class="mx-auto h-px w-12 bg-rojo shadow-neonRojoSutil"></div>
     </div>
 
-    <!-- Grid asimétrico -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
-
-      <!-- Foto 1: grande (2 filas) -->
-      <div class="foto-galeria row-span-2 relative overflow-hidden rounded-xl cursor-pointer group">
+    <!-- Galería tipo móvil -->
+    <div
+      class="relative mx-auto max-w-5xl"
+      data-gallery
+      data-images={JSON.stringify(fotosGaleria)}
+    >
+      <!-- Imagen principal -->
+      <div
+        class="relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-[0_0_45px_rgba(255,31,31,0.12)]"
+      >
         <img
+          data-main-image
           src={fotosGaleria[0]}
-          alt="Trabajo de tatuaje 1"
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          alt="Trabajo de Magnum Barbershop"
+          class="h-[360px] w-full object-cover opacity-100 blur-0 scale-100 transition-[opacity,transform,filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[480px] md:h-[620px]"
         />
-        <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
-        <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
+
+        <!-- Oscurecido suave -->
+        <div
+          class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20"
+        >
+        </div>
+
+        <!-- Contador -->
+        <div
+          class="absolute bottom-4 left-4 rounded-full border border-white/10 bg-black/55 px-4 py-2 text-sm text-blanco backdrop-blur-md sm:bottom-6 sm:left-6"
+        >
+          <span data-current-index>1</span>
+          <span class="text-white/40"> / </span>
+          <span>{fotosGaleria.length}</span>
+        </div>
+
+        <!-- Flecha izquierda -->
+        <button
+          type="button"
+          data-prev
+          aria-label="Imagen anterior"
+          class="absolute left-3 top-1/2 grid size-[46px] -translate-y-1/2 place-items-center rounded-full border border-white/10 bg-black/50 text-white backdrop-blur-md transition-all duration-200 hover:scale-110 hover:border-rojo/70 hover:bg-rojo/20 hover:shadow-[0_0_24px_rgba(255,31,31,0.4)] active:scale-95 sm:left-5"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="size-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M15 18l-6-6 6-6"></path>
+          </svg>
+        </button>
+
+        <!-- Flecha derecha -->
+        <button
+          type="button"
+          data-next
+          aria-label="Imagen siguiente"
+          class="absolute right-3 top-1/2 grid size-[46px] -translate-y-1/2 place-items-center rounded-full border border-white/10 bg-black/50 text-white backdrop-blur-md transition-all duration-200 hover:scale-110 hover:border-rojo/70 hover:bg-rojo/20 hover:shadow-[0_0_24px_rgba(255,31,31,0.4)] active:scale-95 sm:right-5"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="size-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 18l6-6-6-6"></path>
+          </svg>
+        </button>
       </div>
 
-      <!-- Fotos 2 y 3: normales -->
-      {fotosGaleria.slice(1, 3).map((foto, idx) => (
-        <div class="foto-galeria relative overflow-hidden rounded-xl cursor-pointer group">
-          <img
-            src={foto}
-            alt={`Trabajo ${idx + 2}`}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
-          <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
-        </div>
-      ))}
-
-      <!-- Foto 4: ancha (2 columnas) -->
-      <div class="foto-galeria col-span-2 relative overflow-hidden rounded-xl cursor-pointer group">
-        <img
-          src={fotosGaleria[3]}
-          alt="Trabajo 4 - carta de presentación"
-          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
-        <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
+      <!-- Miniaturas -->
+      <div class="mt-5 flex justify-center gap-3 overflow-x-auto px-2 pb-2">
+        {
+          fotosGaleria.map((foto, index) => (
+            <button
+              type="button"
+              data-thumb
+              data-index={index}
+              aria-label={`Ver imagen ${index + 1}`}
+              class:list={[
+                "h-16 w-20 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-0.5 hover:opacity-100",
+                index === 0
+                  ? "is-active border-rojo opacity-100 shadow-[0_0_18px_rgba(255,31,31,0.45)] -translate-y-0.5"
+                  : "border-white/10 opacity-45 hover:border-white/30",
+              ]}
+            >
+              <img
+                src={foto}
+                alt={`Miniatura ${index + 1}`}
+                class="h-full w-full object-cover"
+              />
+            </button>
+          ))
+        }
       </div>
-
-      <!-- Fotos 5 y 6: normales -->
-      {fotosGaleria.slice(4, 6).map((foto, idx) => (
-        <div class="foto-galeria relative overflow-hidden rounded-xl cursor-pointer group">
-          <img
-            src={foto}
-            alt={`Trabajo ${idx + 5}`}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div class="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-rojo group-hover:shadow-neonRojo transition-all duration-400"></div>
-          <div class="absolute inset-0 bg-fondo/0 group-hover:bg-fondo/20 transition-all duration-400"></div>
-        </div>
-      ))}
-
     </div>
-
   </div>
 </section>
+
+<script>
+  const galleries = document.querySelectorAll("[data-gallery]");
+
+  galleries.forEach((gallery) => {
+    const images = JSON.parse(gallery.getAttribute("data-images") || "[]");
+
+    const mainImage = gallery.querySelector(
+      "[data-main-image]",
+    ) as HTMLImageElement | null;
+    const prevButton = gallery.querySelector("[data-prev]");
+    const nextButton = gallery.querySelector("[data-next]");
+    const currentIndexText = gallery.querySelector("[data-current-index]");
+    const thumbs = gallery.querySelectorAll("[data-thumb]");
+
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    const imageNormalClasses = ["opacity-100", "scale-100", "blur-0"];
+
+    const imageChangingClasses = ["opacity-0", "scale-[0.985]", "blur-md"];
+
+    const thumbActiveClasses = [
+      "is-active",
+      "border-rojo",
+      "opacity-100",
+      "shadow-[0_0_18px_rgba(255,31,31,0.45)]",
+      "-translate-y-0.5",
+    ];
+
+    const thumbInactiveClasses = ["border-white/10", "opacity-45"];
+
+    const changeImage = (newIndex: number) => {
+      if (!mainImage || !currentIndexText || isAnimating || images.length === 0)
+        return;
+
+      isAnimating = true;
+      currentIndex = (newIndex + images.length) % images.length;
+
+      mainImage.classList.remove(...imageNormalClasses);
+      mainImage.classList.add(...imageChangingClasses);
+
+      window.setTimeout(() => {
+        mainImage.src = images[currentIndex];
+        currentIndexText.textContent = String(currentIndex + 1);
+
+        thumbs.forEach((thumb) => {
+          const thumbIndex = Number(thumb.getAttribute("data-index"));
+
+          if (thumbIndex === currentIndex) {
+            thumb.classList.remove(...thumbInactiveClasses);
+            thumb.classList.add(...thumbActiveClasses);
+          } else {
+            thumb.classList.remove(...thumbActiveClasses);
+            thumb.classList.add(...thumbInactiveClasses);
+          }
+        });
+
+        mainImage.classList.remove(...imageChangingClasses);
+        mainImage.classList.add(...imageNormalClasses);
+
+        window.setTimeout(() => {
+          isAnimating = false;
+        }, 500);
+      }, 220);
+    };
+
+    prevButton?.addEventListener("click", () => {
+      changeImage(currentIndex - 1);
+    });
+
+    nextButton?.addEventListener("click", () => {
+      changeImage(currentIndex + 1);
+    });
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const thumbIndex = Number(thumb.getAttribute("data-index"));
+        changeImage(thumbIndex);
+      });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        changeImage(currentIndex - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        changeImage(currentIndex + 1);
+      }
+    });
+  });
+</script>
