@@ -1,24 +1,79 @@
 ---
-/* Layout principal de la landing page */
-const { titulo = "Magnum Barbershop & Tattoo · Los Realejos, Tenerife" } = Astro.props;
+const { titulo = "Magnum Barbershop & Tattoo · Puerto de la Cruz, Tenerife" } =
+  Astro.props;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Magnum Barbershop & Tattoo en Los Realejos, Tenerife. Barbería premium y estudio de tatuaje. Reserva tu cita online." />
+    <meta
+      name="description"
+      content="Barbería premium y estudio de tatuaje en Puerto de la Cruz, Tenerife. Cortes, arreglo de barba y tatuajes. Reserva tu cita online."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.magnum-barbershop.es/" />
     <title>{titulo}</title>
 
-    <!-- Google Fonts: display + cuerpo -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Magnum Barbershop & Tattoo · Puerto de la Cruz, Tenerife"
+    />
+    <meta
+      property="og:description"
+      content="Barbería premium y estudio de tatuaje en Puerto de la Cruz, Tenerife. Reserva tu cita online."
+    />
+    <meta property="og:url" content="https://www.magnum-barbershop.es/" />
+    <meta
+      property="og:image"
+      content="https://www.magnum-barbershop.es/Magnum-Fondo.webp"
+    />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Schema: negocio local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "Magnum Barbershop & Tattoo",
+        "url": "https://www.magnum-barbershop.es",
+        "telephone": "+34 616 799 069",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Calle Obispo Pérez Cáceres 22, Magnum barber shop, 38400, Puerto de la Cruz, Tenerife",
+          "addressLocality": "Puerto de la Cruz",
+          "postalCode": "38400",
+          "addressRegion": "Tenerife",
+          "addressCountry": "ES"
+        },
+        "openingHours": [
+          "Mo-Fr 10:00-14:00",
+          "Mo-Fr 16:00-20:00",
+          "Sa 10:00-14:00"
+        ],
+        "sameAs": ["https://www.instagram.com/magnumbarbershop"]
+      }
+    </script>
+
+    <!-- Google Fonts: non-blocking (eliminates render-blocking request) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Inter:wght@300;400;500;600&display=swap"
+      />
+    </noscript>
 
-    <!-- Favicon básico -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="bg-fondo text-blanco font-cuerpo antialiased">
@@ -27,8 +82,9 @@ const { titulo = "Magnum Barbershop & Tattoo · Los Realejos, Tenerife" } = Astr
 </html>
 
 <style is:global>
-  /* Reset básico y variables de textura */
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -38,9 +94,8 @@ const { titulo = "Magnum Barbershop & Tattoo · Los Realejos, Tenerife" } = Astr
     scroll-behavior: smooth;
   }
 
-  /* Textura de grano sutil en el fondo */
   body::before {
-    content: '';
+    content: "";
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
@@ -48,7 +103,6 @@ const { titulo = "Magnum Barbershop & Tattoo · Los Realejos, Tenerife" } = Astr
     z-index: 0;
   }
 
-  /* Efecto liquid glass reutilizable */
   .liquid-glass {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(12px);
@@ -56,7 +110,6 @@ const { titulo = "Magnum Barbershop & Tattoo · Los Realejos, Tenerife" } = Astr
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* Scrollbar oscura personalizada */
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -64,7 +117,7 @@ const { titulo = "Magnum Barbershop & Tattoo · Los Realejos, Tenerife" } = Astr
     background: #0a0a0a;
   }
   ::-webkit-scrollbar-thumb {
-    background: #FF1F1F;
+    background: #ff1f1f;
     border-radius: 3px;
   }
 </style>

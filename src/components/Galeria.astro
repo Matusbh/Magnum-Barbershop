@@ -1,13 +1,13 @@
 ---
 const fotosGaleria = [
   "/Mano-bien.png",
-  "/Corte-ale-2.png",
-  "/Corte-filip-2.png",
-  "/Corte-cris-2.png",
+  "/Corte-ale-2.webp",
+  "/Corte-filip-2.webp",
+  "/Corte-cris-2.webp",
   "/mano-2-bien.jpeg",
-  "/Corte-cris-1.png",
-  "/Corte-filip-1.png",
-  "/Corte-ale-1.png",
+  "/Corte-cris-1.webp",
+  "/Corte-filip-1.webp",
+  "/Corte-ale-1.webp",
   "/pecho.jpeg",
 ];
 ---
@@ -39,6 +39,8 @@ const fotosGaleria = [
           data-main-image
           src={fotosGaleria[0]}
           alt="Trabajo de Magnum Barbershop"
+          loading="lazy"
+          decoding="async"
           class="h-[360px] w-full object-cover opacity-100 blur-0 scale-100 transition-[opacity,transform,filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[480px] md:h-[620px]"
         />
 
@@ -113,6 +115,8 @@ const fotosGaleria = [
               <img
                 src={foto}
                 alt={`Miniatura ${index + 1}`}
+                loading="lazy"
+                decoding="async"
                 class="h-full w-full object-cover"
               />
             </button>

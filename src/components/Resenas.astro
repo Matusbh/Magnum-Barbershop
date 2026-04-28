@@ -1,0 +1,178 @@
+---
+const urlBooksy =
+  "https://booksy.com/es-es/144549_magnum-barber-shop_barberia_70874_puerto-de-la-cruz";
+
+const resenas = [
+  {
+    nombre: "David",
+    estrellas: 5,
+    texto:
+      "Profesionales, lugar con ambiente agradable. Muy buen corte, de los mejores degradados que me han hecho.",
+    fecha: "Abr 2026",
+    barbero: "Filip",
+  },
+  {
+    nombre: "Carlos",
+    estrellas: 5,
+    texto:
+      "Espectacular la atención y el corte de pelo y barba, muy contento con este equipo.",
+    fecha: "Feb 2026",
+    barbero: "Cristhian",
+  },
+  {
+    nombre: "Guacimara",
+    estrellas: 5,
+    texto: "Muy profesionales, puntualidad y buen trabajo.",
+    fecha: "Mar 2026",
+    barbero: "Cristhian",
+  },
+  {
+    nombre: "Alessandro",
+    estrellas: 5,
+    texto: "Ambiente muy amable y profesional.",
+    fecha: "Abr 2026",
+    barbero: "Filip",
+  },
+  {
+    nombre: "Manuel",
+    estrellas: 5,
+    texto: "Me encantó el corte. 100% Recomendado.",
+    fecha: "Abr 2026",
+    barbero: "Filip",
+  },
+  {
+    nombre: "Raul Alberto",
+    estrellas: 5,
+    texto: "Un trato excelente.",
+    fecha: "Abr 2026",
+    barbero: "Filip",
+  },
+];
+---
+
+<section id="resenas" class="relative py-24 px-4 overflow-hidden">
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-gradient-to-b from-fondo to-grisOscuro"></div>
+
+  <!-- Glow izquierdo decorativo -->
+  <div
+    class="absolute -left-20 top-1/3 w-64 h-64 rounded-full bg-rojo/8 blur-[100px] pointer-events-none"
+  >
+  </div>
+
+  <!-- Línea decorativa superior -->
+  <div
+    class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rojo/30 to-transparent"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto">
+    <!-- Título -->
+    <div class="text-center mb-12">
+      <h2
+        class="font-display text-3xl sm:text-4xl text-blanco mb-4 drop-shadow-[0_0_20px_rgba(255,31,31,0.4)]"
+      >
+        RESEÑAS
+      </h2>
+      <div class="w-12 h-px bg-rojo mx-auto shadow-neonRojoSutil mb-6"></div>
+
+      <!-- Badge de valoración global -->
+      <a
+        href={urlBooksy}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 liquid-glass border border-white/10 rounded-full px-5 py-2.5 hover:border-rojo/30 transition-all duration-300 group"
+      >
+        <span class="text-blanco font-semibold text-lg">5.0</span>
+        <span class="flex gap-0.5">
+          {
+            Array(5)
+              .fill(0)
+              .map(() => (
+                <svg
+                  viewBox="0 0 20 20"
+                  class="w-4 h-4 fill-rojo"
+                  aria-hidden="true"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))
+          }
+        </span>
+        <span class="text-blanco/50 text-sm">39 reseñas en Booksy</span>
+        <svg
+          viewBox="0 0 20 20"
+          class="w-3.5 h-3.5 fill-blanco/30 group-hover:fill-rojo transition-colors duration-300"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Grid de reseñas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {
+        resenas.map((resena) => (
+          <div class="liquid-glass rounded-xl p-5 flex flex-col gap-4 hover:border-rojo/20 transition-all duration-300 group">
+            <!-- Estrellitas -->
+            <div class="flex gap-0.5">
+              {Array(resena.estrellas)
+                .fill(0)
+                .map(() => (
+                  <svg
+                    viewBox="0 0 20 20"
+                    class="w-4 h-4 fill-rojo"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+            </div>
+
+            <!-- Texto de la reseña -->
+            <p class="text-blanco/70 text-sm leading-relaxed flex-1">
+              &ldquo;{resena.texto}&rdquo;
+            </p>
+
+            <!-- Footer de la card -->
+            <div class="flex items-end justify-between pt-2 border-t border-white/5">
+              <div>
+                <p class="text-blanco text-sm font-semibold">{resena.nombre}</p>
+                <p class="text-rojo text-xs tracking-wider uppercase mt-0.5">
+                  con {resena.barbero}
+                </p>
+              </div>
+              <span class="text-blanco/25 text-xs">{resena.fecha}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- CTA ver más -->
+    <div class="text-center mt-10">
+      <a
+        href={urlBooksy}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-blanco/40 hover:text-rojo text-sm tracking-widest uppercase transition-colors duration-300"
+      >
+        Ver todas las reseñas
+        <svg
+          viewBox="0 0 20 20"
+          class="w-3.5 h-3.5 fill-current"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
